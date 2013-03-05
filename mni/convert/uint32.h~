@@ -1,0 +1,99 @@
+/*************************************************************************
+ **                         UINT16 (std::uint32_t)                      **
+ *************************************************************************/
+
+/*************************************************************************
+ **                            MATLAB TO C++                            **
+ *************************************************************************/
+
+//bool case
+template <>
+        void convert_from_matlab_internal<mxUINT32>(const mxArray* mx, bool& t){
+    std::uint32_t *pr = (std::uint16_t *)mxGetData(mx);
+    if(*pr > 0){
+        t = true;
+    }else{
+        t = false;
+    }
+//     mexWarnMsgTxt("Converting a Matlab 8-bit integer to a C++ bool.");
+}
+
+//char case
+template <>
+        void convert_from_matlab_internal<mxUINT32>(const mxArray* mx, std::int8_t& t){
+    convert_from_matlab_internal_common_case<mxUINT32, std::int8_t>(mx,t);
+}
+
+//unsigned char case
+template <>
+        void convert_from_matlab_internal<mxUINT32>(const mxArray* mx, std::uint8_t& t){
+    convert_from_matlab_internal_common_case<mxUINT32, std::uint8_t>(mx,t);
+}
+
+//short int case
+template <>
+        void convert_from_matlab_internal<mxUINT32>(const mxArray* mx, std::int16_t& t){
+    convert_from_matlab_internal_common_case<mxUINT32, std::int16_t>(mx,t);
+}
+
+//unsigned short int case
+template <>
+        void convert_from_matlab_internal<mxUINT32>(const mxArray* mx, std::uint16_t& t){
+    convert_from_matlab_internal_common_case<mxUINT32, std::uint16_t>(mx,t);
+}
+
+//int case
+template <>
+        void convert_from_matlab_internal<mxUINT32>(const mxArray* mx, std::int32_t& t){
+    convert_from_matlab_internal_common_case<mxUINT32, std::int32_t>(mx,t);
+}
+
+//unsigned int case
+template <>
+        void convert_from_matlab_internal<mxUINT32>(const mxArray* mx, std::uint32_t& t){
+    convert_from_matlab_internal_common_case<mxUINT32, std::uint32_t>(mx,t);
+}
+
+//long int case
+template <>
+        void convert_from_matlab_internal<mxUINT32>(const mxArray* mx, std::int64_t& t){
+    convert_from_matlab_internal_common_case<mxUINT32, std::int64_t>(mx,t);
+}
+
+//unsigned long int case
+template <>
+        void convert_from_matlab_internal<mxUINT32>(const mxArray* mx, std::uint64_t& t){
+    convert_from_matlab_internal_common_case<mxUINT32, std::uint64_t>(mx,t);
+}
+
+//float case
+template <>
+        void convert_from_matlab_internal<mxUINT32>(const mxArray* mx, float& t){
+    convert_from_matlab_internal_common_case<mxUINT32, float>(mx,t);
+}
+
+//double case
+template <>
+        void convert_from_matlab_internal<mxUINT32>(const mxArray* mx, double& t){
+    convert_from_matlab_internal_common_case<mxUINT32, double>(mx,t);
+}
+
+//long double case
+template <>
+        void convert_from_matlab_internal<mxUINT32>(const mxArray* mx, long double& t){
+    convert_from_matlab_internal_common_case<mxUINT32, long double>(mx,t);
+}
+
+/*************************************************************************
+ **                            C++ TO MATLAB                            **
+ *************************************************************************/
+
+template <>
+        void convert_to_matlab(const std::uint16_t& t, mxArray*& mx){
+    mwSize dims[2];
+    dims[0] = 1;
+    dims[1] = 1;
+    mx = mxCreateNumericArray(2, dims, mxUINT32_CLASS, mxREAL);
+    std::uint16_t* data = (std::uint16_t*)mxGetData(mx);
+    *data = t;
+}
