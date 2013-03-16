@@ -51,6 +51,7 @@ template <>
 template <>
         void convert_from_matlab_impl<mxINT32>(const mxArray* mx, std::int16_t& t){
     convert_from_matlab_impl_common_case<mxINT32, std::int16_t>(mx,t);
+    WARN_POSSIBLE_LOSS(mxINT32, std::int16_t)
 }
 
 //unsigned short int case

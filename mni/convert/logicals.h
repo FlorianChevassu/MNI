@@ -37,7 +37,6 @@ template <>
     }else{
         t = 0;
     }
-    WARN_BAD_TYPE(mxLOGICAL, std::int8_t)
 }
 
 //unsigned char case
@@ -49,7 +48,6 @@ template <>
     }else{
         t = 0;
     }
-    WARN_BAD_TYPE(mxLOGICAL, std::uint8_t)
 }
 
 //short int case
@@ -61,7 +59,6 @@ template <>
     }else{
         t = 0;
     }
-    WARN_BAD_TYPE(mxLOGICAL, std::int16_t)
 }
 
 //unsigned short int case
@@ -73,7 +70,6 @@ template <>
     }else{
         t = 0;
     }
-    WARN_BAD_TYPE(mxLOGICAL, std::uint16_t)
 }
 
 //int case
@@ -85,7 +81,6 @@ template <>
     }else{
         t = 0;
     }
-    WARN_BAD_TYPE(mxLOGICAL, std::int32_t)
 }
 
 //unsigned int case
@@ -97,7 +92,6 @@ template <>
     }else{
         t = 0;
     }
-    WARN_BAD_TYPE(mxLOGICAL, std::uint32_t)
 }
 
 //long int case
@@ -109,7 +103,6 @@ template <>
     }else{
         t = 0;
     }
-    WARN_BAD_TYPE(mxLOGICAL, std::int64_t)
 }
 
 //unsigned long int case
@@ -121,7 +114,6 @@ template <>
     }else{
         t = 0;
     }
-    WARN_BAD_TYPE(mxLOGICAL, std::uint64_t)
 }
 
 //float case
@@ -133,7 +125,6 @@ template <>
     }else{
         t = 0.0f;
     }
-    WARN_BAD_TYPE(mxLOGICAL, float)    
 }
 
 //double case
@@ -145,7 +136,6 @@ template <>
     }else{
         t = 0.0;
     }
-    WARN_BAD_TYPE(mxLOGICAL, double)
 }
 
 //long double case
@@ -157,7 +147,6 @@ template <>
     }else{
         t = 0.0;
     }
-    WARN_BAD_TYPE(mxLOGICAL, long double)
 }
 
 //string case
@@ -169,7 +158,6 @@ template <>
     }else{
         t = "false";
     }
-    WARN_BAD_TYPE(mxLOGICAL, std::string)
 }
 
 /*************************************************************************

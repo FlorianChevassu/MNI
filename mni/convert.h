@@ -181,10 +181,13 @@ void convert_tuple_to_matlab_impl(const std::tuple<Args...>& tuple, mxArray *plh
     convert_to_matlab(std::get<0>(tuple), plhs[0]);
 }
 
-template <typename... Args>
-        void convert_tuple_to_matlab(const std::tuple<Args...>& tuple, mxArray**& plhs){
-    convert_tuple_to_matlab_impl(tuple, plhs, int_<sizeof...(Args)-1>());
+//here, I represents nlhs
+template <typename... Args, std::size_t NLHS>
+        void convert_tuple_to_matlab(const std::tuple<Args...>& tuple, mxArray**& plhs, int_<NLHS>){
+    convert_tuple_to_matlab_impl(tuple, plhs, int_<(sizeof...(Args)>NLHS) ? NLHS-1 : sizeof...(Args)-1>());
 }
+
+/*          WARNING UTILITIES           */
 
 #define WARN(text) mexWarnMsgTxt(#text);
 
@@ -197,17 +200,6 @@ template <typename... Args>
 #define WARN_POSSIBLE_LOSS(mtype,ctype) WARN(WARNING : Converting a Matlab mtype to a C++ ctype : possible loss of data)
 #else
 #define WARN_POSSIBLE_LOSS(mtype,ctype)
-#endif
-
-/*      warn bad types conversions, e.g. 
- *      convert<mxINT8>(bool&, mxArray*);, as bool != signed char;
- */
-#define WARN_BAD_TYPES_CONVERSION
-
-#ifdef WARN_BAD_TYPES_CONVERSION
-#define WARN_BAD_TYPE(mtype,ctype) WARN(WARNING : Converting a Matlab mtype to a C++ ctype.)
-#else
-#define WARN_BAD_TYPE(mtype,ctype)
 #endif
 
 

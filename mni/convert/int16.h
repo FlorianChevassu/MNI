@@ -38,6 +38,7 @@ template <>
 template <>
         void convert_from_matlab_impl<mxINT16>(const mxArray* mx, std::int8_t& t){
     convert_from_matlab_impl_common_case<mxINT16, std::int8_t>(mx,t);
+    WARN_POSSIBLE_LOSS(mxINT16, std::int8_t)
 }
 
 //unsigned char case

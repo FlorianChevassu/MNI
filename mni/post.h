@@ -79,7 +79,40 @@ template <typename Result_type,
     Result_type result = forward_to_function(params, MNI_FUNCTION_NAME);
     
     /*Handle the result.*/
-    convert_tuple_to_matlab(result, plhs);
+    switch(nlhs){
+        case 0://same as 1
+        case 1:
+            convert_tuple_to_matlab(result, plhs, int_<1>());
+            break;
+        case 2:
+            convert_tuple_to_matlab(result, plhs, int_<2>());
+            break;
+        case 3:
+            convert_tuple_to_matlab(result, plhs, int_<3>());
+            break;
+        case 4:
+            convert_tuple_to_matlab(result, plhs, int_<4>());
+            break;
+        case 5:
+            convert_tuple_to_matlab(result, plhs, int_<5>());
+            break;
+        case 6:
+            convert_tuple_to_matlab(result, plhs, int_<6>());
+            break;
+        case 7:
+            convert_tuple_to_matlab(result, plhs, int_<7>());
+            break;
+        case 8:
+            convert_tuple_to_matlab(result, plhs, int_<8>());
+            break;
+        case 9:
+            convert_tuple_to_matlab(result, plhs, int_<9>());
+            break;
+        case 10:
+            convert_tuple_to_matlab(result, plhs, int_<10>());
+            break;
+    }
+    
 }
 
 void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]){

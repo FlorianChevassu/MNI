@@ -31,25 +31,28 @@ template <>
     }else{
         t = false;
     }
-//     mexWarnMsgTxt("Converting a Matlab 8-bit integer to a C++ bool.");
+    WARN_POSSIBLE_LOSS(mxUINT16, bool)
 }
 
 //char case
 template <>
         void convert_from_matlab_impl<mxUINT16>(const mxArray* mx, std::int8_t& t){
     convert_from_matlab_impl_common_case<mxUINT16, std::int8_t>(mx,t);
+    WARN_POSSIBLE_LOSS(mxUINT16, std::int8_t)
 }
 
 //unsigned char case
 template <>
         void convert_from_matlab_impl<mxUINT16>(const mxArray* mx, std::uint8_t& t){
     convert_from_matlab_impl_common_case<mxUINT16, std::uint8_t>(mx,t);
+    WARN_POSSIBLE_LOSS(mxUINT16, std::uint8_t)
 }
 
 //short int case
 template <>
         void convert_from_matlab_impl<mxUINT16>(const mxArray* mx, std::int16_t& t){
     convert_from_matlab_impl_common_case<mxUINT16, std::int16_t>(mx,t);
+    WARN_POSSIBLE_LOSS(mxUINT16, std::int16_t)
 }
 
 //unsigned short int case

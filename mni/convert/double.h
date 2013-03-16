@@ -32,61 +32,70 @@ template <>
     }else{
         t = false;
     }
-//     mexWarnMsgTxt("Converting a Matlab 8-bit integer to a C++ bool.");
+    WARN_POSSIBLE_LOSS(mxDOUBLE,bool)
 }
 
 //char case
 template <>
         void convert_from_matlab_impl<mxDOUBLE>(const mxArray* mx, std::int8_t& t){
     convert_from_matlab_impl_common_case<mxDOUBLE, std::int8_t>(mx,t);
+    WARN_POSSIBLE_LOSS(mxDOUBLE,std::int8_t)
 }
 
 //unsigned char case
 template <>
         void convert_from_matlab_impl<mxDOUBLE>(const mxArray* mx, std::uint8_t& t){
     convert_from_matlab_impl_common_case<mxDOUBLE, std::uint8_t>(mx,t);
+    WARN_POSSIBLE_LOSS(mxDOUBLE,std::uint8_t)
 }
 
 //short int case
 template <>
         void convert_from_matlab_impl<mxDOUBLE>(const mxArray* mx, std::int16_t& t){
     convert_from_matlab_impl_common_case<mxDOUBLE, std::int16_t>(mx,t);
+    WARN_POSSIBLE_LOSS(mxDOUBLE,std::int16_t)
 }
 
 //unsigned short int case
 template <>
         void convert_from_matlab_impl<mxDOUBLE>(const mxArray* mx, std::uint16_t& t){
     convert_from_matlab_impl_common_case<mxDOUBLE, std::uint16_t>(mx,t);
+    WARN_POSSIBLE_LOSS(mxDOUBLE,std::uint16_t)
 }
 
 //int case
 template <>
         void convert_from_matlab_impl<mxDOUBLE>(const mxArray* mx, std::int32_t& t){
     convert_from_matlab_impl_common_case<mxDOUBLE, std::int32_t>(mx,t);
+    WARN_POSSIBLE_LOSS(mxDOUBLE,std::int32_t)
 }
 
 //unsigned int case
 template <>
         void convert_from_matlab_impl<mxDOUBLE>(const mxArray* mx, std::uint32_t& t){
     convert_from_matlab_impl_common_case<mxDOUBLE, std::uint32_t>(mx,t);
+    WARN_POSSIBLE_LOSS(mxDOUBLE,std::uint32_t)
 }
 
 //long int case
 template <>
         void convert_from_matlab_impl<mxDOUBLE>(const mxArray* mx, std::int64_t& t){
     convert_from_matlab_impl_common_case<mxDOUBLE, std::int64_t>(mx,t);
+    WARN_POSSIBLE_LOSS(mxDOUBLE,std::int64_t)
 }
 
 //unsigned long int case
 template <>
         void convert_from_matlab_impl<mxDOUBLE>(const mxArray* mx, std::uint64_t& t){
     convert_from_matlab_impl_common_case<mxDOUBLE, std::uint64_t>(mx,t);
+    WARN_POSSIBLE_LOSS(mxDOUBLE,std::uint64_t)
 }
 
 //float case
 template <>
         void convert_from_matlab_impl<mxDOUBLE>(const mxArray* mx, float& t){
     convert_from_matlab_impl_common_case<mxDOUBLE, float>(mx,t);
+    WARN_POSSIBLE_LOSS(mxDOUBLE,float)
 }
 
 //double case
